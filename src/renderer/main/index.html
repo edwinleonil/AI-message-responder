@@ -1,0 +1,26 @@
+<!doctype html>
+<html><head><meta charset="UTF-8" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'" />
+<title>AI Message Responder</title>
+<link rel="stylesheet" href="./style.css" /></head>
+<body>
+  <h1>AI Message Responder</h1>
+  <button id="capture">Capture message (Ctrl+Shift+R)</button>
+  <img id="thumb" alt="" hidden />
+  <label>Extra instructions (optional)<input id="instr" placeholder="e.g. decline politely" /></label>
+  <div class="row">
+    <button id="gen" disabled>Draft reply</button>
+    <button id="casual" disabled>More casual</button>
+    <button id="formal" disabled>More formal</button>
+  </div>
+  <textarea id="draft" rows="10" placeholder="Your draft appears here"></textarea>
+  <div class="row"><button id="copy">Copy</button><span id="status"></span></div>
+  <details id="settings">
+    <summary>Settings</summary>
+    <label>AnythingLLM address<input id="baseUrl" /></label>
+    <label>API key<input id="apiKey" type="password" /></label>
+    <label>Workspace slug<input id="workspace" /></label>
+    <label>Hotkey<input id="hotkey" /></label>
+    <div class="row"><button id="save">Save</button><button id="test">Test connection</button></div>
+  </details>
+<script type="module" src="./main.ts"></script></body></html>
