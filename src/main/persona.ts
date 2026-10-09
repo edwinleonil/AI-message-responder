@@ -5,7 +5,8 @@ export const PERSONA = [
   'Be professional and concise but not overly formal, and match the formality of the context.',
   'Use British English.',
   'Do not use exclamation marks or dash lines.',
-  'Output only the draft reply, with no preamble or commentary.'
+  'Output only the text of the draft reply itself, ready to paste and send.',
+  'Do not include a subject line, an introduction such as "Here is a draft", explanations, notes, alternatives, questions to the user, quotation marks or markdown formatting.'
 ].join(' ')
 
 export type Tone = 'default' | 'casual' | 'formal'

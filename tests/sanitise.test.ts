@@ -17,6 +17,21 @@ describe('sanitise', () => {
   })
 })
 
+describe('extractDraft', () => {
+  it('drops preamble and trailing notes', () => {
+    expect(sanitise("Here's a draft reply:\n\nHi Sam,\n\nThanks for the update.\n\nKind regards\n\nNote: I kept it brief.")).toBe('Hi Sam,\n\nThanks for the update.\n\nKind regards')
+  })
+  it('drops reasoning blocks', () => {
+    expect(sanitise('<think>plan the reply</think>\nThanks, that works.')).toBe('Thanks, that works.')
+  })
+  it('takes the draft between horizontal rules', () => {
+    expect(sanitise('Sure thing\n---\nSounds good, see you then.\n---\nLet me know if you want changes')).toBe('Sounds good, see you then.')
+  })
+  it('removes wrapping quotes and markdown', () => {
+    expect(sanitise('"**Thanks** for this."')).toBe('Thanks for this.')
+  })
+})
+
 describe('toImageRect', () => {
   it('scales and clamps', () => {
     expect(toImageRect({ x: 10, y: 10, width: 100, height: 50 }, 1.5, { width: 1920, height: 1080 })).toEqual({ x: 15, y: 15, width: 150, height: 75 })
